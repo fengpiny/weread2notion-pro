@@ -1,4 +1,4 @@
-name: weread sync
+name: weread note sync
 
 on:
   workflow_dispatch:
@@ -19,7 +19,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install weread2notion
+          pip install weread2notion-pro
 
       - name: Run weread
         env:
@@ -27,4 +27,4 @@ jobs:
           NOTION_PAGE: ${{ secrets.NOTION_PAGE }}
           WEREAD_COOKIE: ${{ secrets.WEREAD_COOKIE }}
         run: |
-          python -m weread2notion
+          weread2notion
