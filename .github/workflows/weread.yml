@@ -19,7 +19,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install weread2notion-pro
+          git clone https://github.com/eallion/weread2notion-pro.git
+          cd weread2notion-pro
+          pip install -r requirements.txt
 
       - name: Run weread
         env:
@@ -27,4 +29,5 @@ jobs:
           NOTION_PAGE: ${{ secrets.NOTION_PAGE }}
           WEREAD_COOKIE: ${{ secrets.WEREAD_COOKIE }}
         run: |
-          weread2notion
+          cd weread2notion-pro
+          python main.py
